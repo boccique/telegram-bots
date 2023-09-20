@@ -1,12 +1,13 @@
 import logging
-from aiogram import Bot, Dispatcher, executor, types
+from aiogram import Bot, Dispatcher, types
+import executor as executor
 from db import Database
 
 logging.basicConfig(level=logging.INFO)
 
 bot = Bot(token="6547583951:AAG02e7k37PQddhYNG8PlYYlzQ0FmydgIQ4")
 dp = Dispatcher(bot)
-db = Database('database0.db')
+db = Database('database0')
 
 
 @dp.message_handler(commands=['start'])

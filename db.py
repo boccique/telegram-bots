@@ -2,7 +2,7 @@ import sqlite3
 
 
 class Database:
-    def __int__(self) -> None:
+    def __int__(self, db_file):
         self.connection = sqlite3.connect(db_file)
         self.cursor = self.connection.cursor()
 
@@ -13,4 +13,4 @@ class Database:
 
     def add_user(self, user_id):
         with self.connection:
-            return self.cursor.execute("INSERT INTO `users` (`user_id`) VALUE(?)", (user_id,))
+            return self.cursor.execute("INSERT INTO `users` (`user_id`) VALUES (?)", (user_id,))
